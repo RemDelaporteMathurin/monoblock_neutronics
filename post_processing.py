@@ -33,7 +33,7 @@ std_dev *= source_strength  # m-3 s-1
 value = rmp.reshape_values_to_mesh_shape(helium_generation_mesh, value)
 std_dev = rmp.reshape_values_to_mesh_shape(helium_generation_mesh, std_dev)
 
-threshold = 0.6e19
+threshold = 0.6e18
 value[np.where(value < threshold)] = np.nan
 std_dev[np.where(value < threshold)] = np.nan
 
