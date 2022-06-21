@@ -86,6 +86,7 @@ regular_mesh_tally_heating = odw.MeshTally2D(
     plane_slice_location=[100 + mb_thickness / 2, 100 - mb_thickness / 2],
     mesh_resolution=(50, 50),
 )
+regular_mesh_tally_heating.filters.append(openmc.MaterialFilter([tungsten]))
 
 tallies = openmc.Tallies(
     [tally, tally2, regular_mesh_tally_helium, regular_mesh_tally_heating]
