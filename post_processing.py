@@ -38,7 +38,14 @@ def plot_distribution(mean, std_dev):
     plt.errorbar(
         x, distribution[::-1], yerr=2 * std_dev_distrib[::-1], fmt="o", alpha=0.5
     )
-    plt.plot(x, res.slope * x + res.intercept)
+    (line,) = plt.plot(x, res.slope * x + res.intercept)
+    x_annotation = 0.75
+    y_annotation = (res.slope * x_annotation + res.intercept) * 1.1
+    plt.annotate(
+        "{:.1e} $x$ + {:.1e}".format(res.slope, res.intercept),
+        (x_annotation, y_annotation),
+        color=line.get_color(),
+    )
 
 
 result = openmc.StatePoint("statepoint.20.h5")
@@ -67,7 +74,9 @@ plt.figure()
 plot_distribution(value, std_dev)
 plt.xlabel("Distance from the top surface (cm)")
 plt.ylabel("He generation  (m$^{-3}$ s$^{-1}$)")
-# plt.ylim(bottom=0, top=7e18)
+plt.ylim(bottom=0)
+plt.gca().spines.right.set_visible(False)
+plt.gca().spines.top.set_visible(False)
 plt.savefig("he_generation_distribution.png")
 
 
@@ -95,4 +104,6 @@ plot_distribution(value, std_dev)
 plt.xlabel("Distance from the top surface (cm)")
 plt.ylabel("Heat generation  (MW m$^{-3}$)")
 plt.ylim(bottom=0)
+plt.gca().spines.right.set_visible(False)
+plt.gca().spines.top.set_visible(False)
 plt.savefig("heat_distribution.png")
