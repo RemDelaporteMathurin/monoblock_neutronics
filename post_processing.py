@@ -58,7 +58,7 @@ source_strength = otuc.find_source_strength(
 # He generation mesh tally
 helium_generation_mesh = result.get_tally(name="(n,Xa)_on_2D_mesh_yz")
 
-value, std_dev = shape_tally(helium_generation_mesh, threshold=4.5e18)
+value, std_dev = shape_tally(helium_generation_mesh, threshold=4.75e18)
 
 rmp.plot_regular_mesh_values(
     values=value,
