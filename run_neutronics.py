@@ -40,8 +40,8 @@ materials = odw.Materials(
 
 
 settings = odw.FusionSettings()
-settings.batches = 20
-settings.particles = 500000
+settings.batches = 50
+settings.particles = 1000000
 
 my_source = ops.FusionRingSource(
     fuel="DT",

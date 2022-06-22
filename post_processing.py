@@ -48,7 +48,7 @@ def plot_distribution(mean, std_dev):
     )
 
 
-result = openmc.StatePoint("statepoint.20.h5")
+result = openmc.StatePoint("statepoint.50.h5")
 
 height_mb = 2.5  # cm
 source_strength = otuc.find_source_strength(
@@ -58,7 +58,7 @@ source_strength = otuc.find_source_strength(
 # He generation mesh tally
 helium_generation_mesh = result.get_tally(name="(n,Xa)_on_2D_mesh_yz")
 
-value, std_dev = shape_tally(helium_generation_mesh, threshold=0.6e18)
+value, std_dev = shape_tally(helium_generation_mesh, threshold=4.5e18)
 
 rmp.plot_regular_mesh_values(
     values=value,
