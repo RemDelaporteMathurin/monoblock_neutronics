@@ -66,6 +66,8 @@ rmp.plot_regular_mesh_values(
     rotate_plot=180,
     label="He3 generation (m$^{-3}$ s$^{-1}$)",
 )
+plt.gca().spines.right.set_visible(False)
+plt.gca().spines.top.set_visible(False)
 plt.savefig("helium_generation.png")
 
 # depth distribution of helium generation
@@ -84,7 +86,7 @@ plt.savefig("he_generation_distribution.png")
 plt.figure()
 heat_generation_mesh = result.get_tally(name="heating_on_2D_mesh_yz")
 
-value, std_dev = shape_tally(heat_generation_mesh, threshold=1.5e27)
+value, std_dev = shape_tally(heat_generation_mesh, threshold=4.22e27)
 value *= 1.602e-19 * 1e-6  # MW  m-3
 std_dev *= 1.602e-19 * 1e-6  # MW  m-3
 
@@ -94,7 +96,9 @@ rmp.plot_regular_mesh_values(
     rotate_plot=180,
     label="Heat generation (MW m$^{-3}$)",
 )
-
+plt.gca().get_images()[0].set_cmap("inferno")
+plt.gca().spines.right.set_visible(False)
+plt.gca().spines.top.set_visible(False)
 plt.savefig("heat_generation.png")
 
 # depth distribution of helium generation
