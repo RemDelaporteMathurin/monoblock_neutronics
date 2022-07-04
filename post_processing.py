@@ -66,11 +66,28 @@ rmp.plot_regular_mesh_values(
     values=value,
     extent=rmp.get_tally_extent(helium_generation_mesh),
     rotate_plot=180,
-    label="He3 generation (m$^{-3}$ s$^{-1}$)",
+    label="He generation (m$^{-3}$ s$^{-1}$)",
 )
 plt.gca().spines.right.set_visible(False)
 plt.gca().spines.top.set_visible(False)
-plt.savefig("helium_generation.png")
+plt.savefig("helium_generation_in_monoblock.png")
+plt.savefig("helium_generation_in_monoblock.pdf")
+
+
+# Heat generation mesh tally std dev
+plt.figure()
+
+rmp.plot_regular_mesh_values(
+    values=std_dev,
+    extent=rmp.get_tally_extent(helium_generation_mesh),
+    rotate_plot=180,
+    label="He generation (m$^{-3}$ s$^{-1}$)",
+)
+plt.gca().spines.right.set_visible(False)
+plt.gca().spines.top.set_visible(False)
+plt.savefig("helium_generation_std_dev.png")
+plt.savefig("helium_generation_std_dev.pdf")
+
 
 # depth distribution of helium generation
 
@@ -82,6 +99,7 @@ plt.ylim(bottom=0)
 plt.gca().spines.right.set_visible(False)
 plt.gca().spines.top.set_visible(False)
 plt.savefig("he_generation_distribution.png")
+plt.savefig("he_generation_distribution.pdf")
 
 
 # Heat generation mesh tally
