@@ -21,8 +21,10 @@ def shape_tally(tally, threshold=0):
     value = rmp.reshape_values_to_mesh_shape(tally, value)
     std_dev = rmp.reshape_values_to_mesh_shape(tally, std_dev)
 
-    value[np.where(value < threshold)] = np.nan
-    std_dev[np.where(value < threshold)] = np.nan
+    indexes = np.where(value < threshold)
+
+    value[indexes] = np.nan
+    std_dev[indexes] = np.nan
     return value, std_dev
 
 
