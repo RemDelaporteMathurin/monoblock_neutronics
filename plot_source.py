@@ -34,11 +34,11 @@ plt.annotate(r"$\sigma = \sqrt{\frac{4 E_0 T_i}{M_\mathrm{reactants}}}$", (x_ann
 
 
 plt.xlabel("Neutron energy (MeV)")
-plt.ylabel("Probability")
+plt.ylabel("Probability density")
 
 plt.gca().spines.right.set_visible(False)
 plt.gca().spines.top.set_visible(False)
 
-plt.savefig("out.png")
-plt.savefig("out.svg")
-plt.savefig("out.pdf")
+plt.savefig("DT_neutron_source.png")
+plt.savefig("DT_neutron_source.svg")
+plt.savefig("DT_neutron_source.pdf")
