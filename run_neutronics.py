@@ -96,4 +96,5 @@ my_model = openmc.Model(
     materials=materials, geometry=geometry, settings=settings, tallies=tallies
 )
 
-statepoint_file = my_model.run(tracks=False)
+if __name__ == "__main__":
+    statepoint_file = my_model.run(tracks=False)
